@@ -72,5 +72,9 @@ rpart.plot(decisionTree_model)
 install.packages("neuralnet")
 library(neuralnet)
 ANN_model = neuralnet(Class ~ ., train_data, linear.output = FALSE)
+print(summary(ANN_model))
 plot(ANN_model)
 
+predANN = compute(ANN_model, test_data)
+resultANN = predANN$net.result
+resultANN = ifelse(resultANN > 0.5, 1, 0)
