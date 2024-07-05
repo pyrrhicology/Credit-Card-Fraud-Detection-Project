@@ -105,3 +105,8 @@ model.influence = relative.influence(model_gbm, n.trees = gbm.iter, sort. = TRUE
 
 # Plotting the GBM model
 plot(model_gbm)
+
+# Calculating AUC for GBM
+gbm_test = predict(model_gbm, newdata = test_data, n.trees = gbm.iter)
+gbm_auc = roc(test_data$Class, gbm_test, plot = TRUE, col = "red")
+print(gbm_auc)
