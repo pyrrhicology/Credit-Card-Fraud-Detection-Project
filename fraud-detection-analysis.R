@@ -29,7 +29,15 @@ creditcard_data$Amount = scale(creditcard_data$Amount) # Scaling the 'amount' co
 NewData = creditcard_data[, -c(1)] # Removes the 'Time' column as it might not be relevant for prediction
 head(NewData)
 
-# DATA MODELLING
+# DATA MODELLING:
 library(caTools)
 install.packages("caTools")
 library(caTools)
+set.seed(123)
+
+# Splitting the data into training (80%) and testing (20%) sets
+data_sample = sample.split(NewData$Class, SplitRatio = 0.80)
+train_data = subset(NewData, data_sample == TRUE)
+test_data = subset(NewData, data_sample == FALSE)
+dim(train_data)
+dim(test_data)
