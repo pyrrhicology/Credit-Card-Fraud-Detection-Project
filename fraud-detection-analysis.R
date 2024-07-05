@@ -78,3 +78,9 @@ plot(ANN_model)
 predANN = compute(ANN_model, test_data)
 resultANN = predANN$net.result
 resultANN = ifelse(resultANN > 0.5, 1, 0)
+
+# Gradient Boosting Machine Model
+install.packages("gbm")
+library(gbm, quietly=TRUE)
+
+# Training the GBM
