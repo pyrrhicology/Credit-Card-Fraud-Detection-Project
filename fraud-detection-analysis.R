@@ -46,3 +46,5 @@ dim(test_data)
 # Fitting Logistic Regression Model
 Logistic_Model = glm(Class ~ ., train_data, family = binomial())
 summary(Logistic_Model)
+
+plot(Logistic_Model)
