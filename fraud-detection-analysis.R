@@ -84,3 +84,18 @@ install.packages("gbm")
 library(gbm, quietly=TRUE)
 
 # Training the GBM
+system.time(
+    model_gbm <- gbm(Class ~ .
+                   , distribution = "bernoulli"
+                   , data = rbind(train_data, test_data)
+                   , n.trees = 500
+                   , interaction.depth = 3
+                   , n.minobsinnode = 100
+                   , shrinkage = 0.01
+                   , bag.fraction = 0.5
+                   , train.fraction = nrow(train_data) / (nrow(train_data) + nrow(test_data))
+  )
+)
+
+# Determining best iteration based on test data
+gbm.iter = gbm.perf(model_gbm, method="test")
