@@ -26,3 +26,5 @@ var(creditcard_data$Amount) # Calculates the variance of the transaction amount
 
 # DATA MANIPULATION
 creditcard_data$Amount = scale(creditcard_data$Amount) # Scaling the 'amount' column to normalize the values
+NewData = creditcard_data[, -c(1)] # Removes the 'Time' column as it might not be relevant for prediction
+head(NewData)
