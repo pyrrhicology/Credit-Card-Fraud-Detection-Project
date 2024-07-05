@@ -47,4 +47,8 @@ dim(test_data)
 Logistic_Model = glm(Class ~ ., train_data, family = binomial())
 summary(Logistic_Model)
 
-plot(Logistic_Model)
+plot(Logistic_Model) # Visualizes the model
+
+# Calculating AUC for Logistic Regression
+install.packages("pROC")
+library(pROC)
