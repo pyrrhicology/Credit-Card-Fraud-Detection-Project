@@ -55,3 +55,13 @@ library(pROC)
 lr.predict <- predict(Logistic_Model, newdata = test_data, type = "response")
 auc.gbm = roc(test_data$Class, lr.predict, plot = TRUE, col = "blue") # The ROC curve helps us assess how well a binary classifier can distinguish between two classes (in this case, fraudulent and non-fraudulent transactions) across various threshold settings.
 
+
+# Decision Tree Model
+install.packages("rpart")
+library(rpart)
+install.packages("rpart.plot")
+library(rpart.plot)
+
+decisionTree_model <- rpart(Class ~ ., creditcard_data, method = 'class')
+predicted_val <- predict(decisionTree_model, creditcard_data, type = 'class')
+probability <- predict(decisionTree_model, creditcard_data, type = 'prob')
