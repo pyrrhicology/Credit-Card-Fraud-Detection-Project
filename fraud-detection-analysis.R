@@ -66,3 +66,11 @@ decisionTree_model <- rpart(Class ~ ., creditcard_data, method = 'class')
 predicted_val <- predict(decisionTree_model, creditcard_data, type = 'class')
 probability <- predict(decisionTree_model, creditcard_data, type = 'prob')
 rpart.plot(decisionTree_model)
+
+
+#Artifical Neural Network (ANN) Model
+install.packages("neuralnet")
+library(neuralnet)
+ANN_model = neuralnet(Class ~ ., train_data, linear.output = FALSE)
+plot(ANN_model)
+
