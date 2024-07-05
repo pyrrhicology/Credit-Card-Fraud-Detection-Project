@@ -41,3 +41,8 @@ train_data = subset(NewData, data_sample == TRUE)
 test_data = subset(NewData, data_sample == FALSE)
 dim(train_data)
 dim(test_data)
+
+
+# Fitting Logistic Regression Model
+Logistic_Model = glm(Class ~ ., train_data, family = binomial())
+summary(Logistic_Model)
