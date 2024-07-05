@@ -99,3 +99,9 @@ system.time(
 
 # Determining best iteration based on test data
 gbm.iter = gbm.perf(model_gbm, method="test")
+
+# Calculating variable importance
+model.influence = relative.influence(model_gbm, n.trees = gbm.iter, sort. = TRUE)
+
+# Plotting the GBM model
+plot(model_gbm)
