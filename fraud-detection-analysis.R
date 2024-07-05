@@ -52,3 +52,6 @@ plot(Logistic_Model) # Visualizes the model
 # Calculating AUC for Logistic Regression
 install.packages("pROC")
 library(pROC)
+lr.predict <- predict(Logistic_Model, newdata = test_data, type = "response")
+auc.gbm = roc(test_data$Class, lr.predict, plot = TRUE, col = "blue") # The ROC curve helps us assess how well a binary classifier can distinguish between two classes (in this case, fraudulent and non-fraudulent transactions) across various threshold settings.
+
