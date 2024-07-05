@@ -19,3 +19,5 @@ tail(creditcard_data, 6) #views the last 6 rows of dataset
 
 # Counts the number of fraudulent and non-fraudulent transactions
 table(creditcard_data$Class) 
+
+summary(creditcard_data$Amount) # Gets summary statistics of the transaction amount
