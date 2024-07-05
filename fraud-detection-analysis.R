@@ -23,3 +23,6 @@ table(creditcard_data$Class)
 summary(creditcard_data$Amount) # Gets summary statistics of the transaction amount
 names(creditcard_data) # Displays the column names
 var(creditcard_data$Amount) # Calculates the variance of the transaction amount
+
+# DATA MANIPULATION
+creditcard_data$Amount = scale(creditcard_data$Amount) # Scaling the 'amount' column to normalize the values
