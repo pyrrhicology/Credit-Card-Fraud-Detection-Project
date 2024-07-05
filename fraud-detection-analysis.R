@@ -21,3 +21,4 @@ tail(creditcard_data, 6) #views the last 6 rows of dataset
 table(creditcard_data$Class) 
 
 summary(creditcard_data$Amount) # Gets summary statistics of the transaction amount
+names(creditcard_data) # Displays the column names
