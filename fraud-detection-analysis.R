@@ -110,3 +110,14 @@ plot(model_gbm)
 gbm_test = predict(model_gbm, newdata = test_data, n.trees = gbm.iter)
 gbm_auc = roc(test_data$Class, gbm_test, plot = TRUE, col = "red")
 print(gbm_auc)
+
+
+
+# Improvements and Updates 
+
+# 1. Feature Selection
+# Using Boruta algorithm for feature selection
+install.packages("Boruta")
+library(Boruta)
+boruta_output <- Boruta(Class ~ ., data = NewData, doTrace = 2)
+print(boruta_output)
