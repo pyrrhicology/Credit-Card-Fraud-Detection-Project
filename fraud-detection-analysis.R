@@ -121,3 +121,7 @@ install.packages("Boruta")
 library(Boruta)
 boruta_output <- Boruta(Class ~ ., data = NewData, doTrace = 2)
 print(boruta_output)
+
+# Getting important features
+important_features <- getSelectedAttributes(boruta_output, withTentative = FALSE)
+formula_important <- as.formula(paste("Class ~", paste(important_features, collapse = "+")))
